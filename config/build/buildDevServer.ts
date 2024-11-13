@@ -5,7 +5,7 @@ export function buildDevServer({
   port,
 }: IBuildOptions): DevServerConfiguration {
   return {
-    port: port ?? 3000,
+    port: port,
     open: true,
     historyApiFallback: true,
   }
