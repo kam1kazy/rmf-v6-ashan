@@ -17,16 +17,14 @@ export function buildPlugins(options: IBuildOptions): Configuration['plugins'] {
       __PLATFORM__: JSON.stringify(platform),
       __MODE__: JSON.stringify(mode),
     }),
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-    }),
   ]
 
-  if (mode) {
-    plugins.push(new webpack.ProgressPlugin())
+  if (mode === 'development') {
+    plugins.push(new webpack.ProgressPlugin()),
+      plugins.push(new ForkTsCheckerWebpackPlugin())
   }
 
-  if (mode) {
+  if (mode === 'production') {
     plugins.push(
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css',
