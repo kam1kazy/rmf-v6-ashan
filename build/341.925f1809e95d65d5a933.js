@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_mf_ashan=self.webpackChunkreact_mf_ashan||[]).push([[341],{341:(e,a,r)=>{r.r(a),r.d(a,{default:()=>n});var s=r(848);function n(){return(0,s.jsx)("div",{children:"Reports"})}}}]);

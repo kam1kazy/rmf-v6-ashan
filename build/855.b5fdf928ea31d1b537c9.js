@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_mf_ashan=self.webpackChunkreact_mf_ashan||[]).push([[855],{855:(a,e,n)=>{n.r(e),n.d(e,{default:()=>c});var r=n(848);function c(){return(0,r.jsx)("div",{children:"calendar"})}}}]);

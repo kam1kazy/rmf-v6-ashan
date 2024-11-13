@@ -11,18 +11,18 @@ import { buildResolvers } from './buildResolvers'
 import { IBuildOptions } from './types/types'
 
 export function buildWebpack(options: IBuildOptions): webpack.Configuration {
-  const { mode, path } = options
+  const { mode, paths } = options
   const devMod = options.mode === 'development'
   const prodMod = options.mode === 'production'
 
   return {
     mode: mode ?? 'development',
     entry: {
-      main: path.entry,
+      main: paths.entry,
     },
     output: {
       filename: '[name].[contenthash].js',
-      path: path.output,
+      path: paths.output,
       clean: true,
     },
     plugins: buildPlugins(options),

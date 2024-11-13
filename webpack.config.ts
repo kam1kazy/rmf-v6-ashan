@@ -19,6 +19,7 @@ export default (env: IEnvVariables) => {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     output: path.resolve(__dirname, 'build'),
+    public: path.resolve(__dirname, 'public'),
     src: path.resolve(__dirname, 'src'),
   }
 
@@ -27,7 +28,7 @@ export default (env: IEnvVariables) => {
     mode: env.mode ?? 'development',
     platform: env.platform ?? 'desktop',
     analyzer: env.analyzer,
-    path: paths,
+    paths: paths,
   })
 
   return config
