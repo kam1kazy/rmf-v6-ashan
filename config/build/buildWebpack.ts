@@ -9,11 +9,11 @@ import { buildResolvers } from './buildResolvers'
 
 // Types
 import { IBuildOptions } from './types/types'
+import { buildDevTool } from './buildDevTool'
 
 export function buildWebpack(options: IBuildOptions): webpack.Configuration {
   const { mode, paths } = options
   const devMod = options.mode === 'development'
-  const prodMod = options.mode === 'production'
 
   return {
     mode: mode ?? 'development',
@@ -30,7 +30,7 @@ export function buildWebpack(options: IBuildOptions): webpack.Configuration {
       rules: buildLoader(options),
     },
     resolve: buildResolvers(options),
-    devtool: devMod && 'inline-source-map',
+    devtool: devMod ? buildDevTool(options) : undefined,
     devServer: devMod ? buildDevServer(options) : undefined,
   }
 }
