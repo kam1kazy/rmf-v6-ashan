@@ -1,10 +1,13 @@
+// Libraries
 import { ModuleOptions } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ReactRefreshTypeScript from 'react-refresh-typescript'
+
+// Types
 import { IBuildOptions } from './types/types'
 
 export function buildLoader({ mode }: IBuildOptions): ModuleOptions['rules'] {
   const devMod = mode === 'development'
-  const prodMod = mode === 'production'
 
   const assetsLoader = {
     test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -58,6 +61,9 @@ export function buildLoader({ mode }: IBuildOptions): ModuleOptions['rules'] {
     use: {
       loader: 'ts-loader',
       options: {
+        getCustomTransformers: () => ({
+          before: [devMod && ReactRefreshTypeScript()].filter(Boolean),
+        }),
         transpileOnly: true,
       },
     },

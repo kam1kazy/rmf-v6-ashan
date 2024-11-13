@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 // Types
 import { IBuildOptions } from './types/types'
@@ -20,8 +21,11 @@ export function buildPlugins(options: IBuildOptions): Configuration['plugins'] {
   ]
 
   if (mode === 'development') {
-    plugins.push(new webpack.ProgressPlugin()),
-      plugins.push(new ForkTsCheckerWebpackPlugin())
+    plugins.push(
+      new webpack.ProgressPlugin(),
+      new ForkTsCheckerWebpackPlugin(),
+      new ReactRefreshWebpackPlugin()
+    )
   }
 
   if (mode === 'production') {
