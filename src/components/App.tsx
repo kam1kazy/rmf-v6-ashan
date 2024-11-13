@@ -1,22 +1,26 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import * as classes from './App.module.scss'
 import { Outlet, Link } from 'react-router-dom'
 
+import MyImage from '../assets/image.png'
+
 export default function App() {
-  const [count, setCount] = useState<number>(0)
-
-  const increment = () => setCount((prev) => prev + 1)
-
   return (
     <div>
-      <h1 className={classes.link}>app</h1>
-      <p className={classes.button} onClick={increment}>
-        go
-      </p>
-      <p>test %:?;№ - {count} </p>
+      <h1>app page</h1>
+      <br />
+      <img src={MyImage} alt='' width={50} />
+      <br />
+      <Link className={classes.link} to={'./calendar'}>
+        calendar
+      </Link>
+      <br />
+      <Link className={classes.link} to={'./reports'}>
+        reports
+      </Link>
+      <br />
+      <br />
       <Outlet />
-      <Link to={'./calendar'}>calendar</Link> <br />
-      <Link to={'./reports'}>reports</Link>
     </div>
   )
 }

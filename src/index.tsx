@@ -4,9 +4,9 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 // Components
-import App from './components/App'
-import { LazyCalendar } from './pages/calendar/Calendar.lazy'
-import { LazyReports } from './pages/reports/Reports.lazy'
+import App from '@/components/App'
+import { LazyCalendar } from '@/pages/calendar/Calendar.lazy'
+import { LazyReports } from '@/pages/reports/Reports.lazy'
 
 const root = document.getElementById('root')
 
