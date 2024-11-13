@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 import path from 'path'
 
 // Types
@@ -37,6 +38,14 @@ export function buildPlugins(options: IBuildOptions): Configuration['plugins'] {
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css',
         chunkFilename: 'css/[name].[contenthash].css',
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(paths.public, 'locales'),
+            to: path.resolve(paths.output, 'locales'),
+          },
+        ],
       })
     )
   }

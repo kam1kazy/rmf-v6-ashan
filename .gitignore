@@ -181,4 +181,5 @@ dist
 .netlify
 
 # my
+build
 src/css
