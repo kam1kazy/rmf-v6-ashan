@@ -6,10 +6,10 @@ import { buildDevServer } from './buildDevServer'
 import { buildLoader } from './buildLoader'
 import { buildPlugins } from './buildPlugins'
 import { buildResolvers } from './buildResolvers'
+import { buildDevTool } from './buildDevTool'
 
 // Types
 import { IBuildOptions } from './types/types'
-import { buildDevTool } from './buildDevTool'
 
 export function buildWebpack(options: IBuildOptions): webpack.Configuration {
   const { mode, paths } = options
