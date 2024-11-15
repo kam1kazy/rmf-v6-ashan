@@ -30,7 +30,7 @@ export function buildWebpack(options: IBuildOptions): webpack.Configuration {
       rules: buildLoader(options),
     },
     resolve: buildResolvers(options),
-    devtool: devMod ? buildDevTool(options) : undefined,
+    devtool: buildDevTool(options),
     devServer: devMod ? buildDevServer(options) : undefined,
   }
 }

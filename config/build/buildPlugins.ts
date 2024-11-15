@@ -29,7 +29,9 @@ export function buildPlugins(options: IBuildOptions): Configuration['plugins'] {
     plugins.push(
       new webpack.ProgressPlugin(),
       new ForkTsCheckerWebpackPlugin(),
-      new ReactRefreshWebpackPlugin()
+      new ReactRefreshWebpackPlugin({
+        overlay: false,
+      })
     )
   }
 

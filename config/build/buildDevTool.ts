@@ -1,6 +1,8 @@
 import { Configuration } from 'webpack'
 import { IBuildOptions } from './types/types'
 
-export function buildDevTool(options: IBuildOptions): Configuration['devtool'] {
-  return 'inline-source-map'
+export function buildDevTool({
+  mode,
+}: IBuildOptions): Configuration['devtool'] {
+  return mode ? 'eval-source-map' : 'source-map'
 }
