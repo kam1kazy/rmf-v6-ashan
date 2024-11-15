@@ -10,10 +10,6 @@
     "build:desktop": "webpack --env mode=production --env platform=desktop",
     "typecheck": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "@ant-design/nextjs-registry": "^1.0.1",
